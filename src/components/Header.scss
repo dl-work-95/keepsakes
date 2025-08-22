@@ -1,0 +1,25 @@
+@import '../styles/variables';
+
+.header {
+  position: fixed;
+  /*sticky*/
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 60px;
+  background: $color-surface;
+  border-bottom: 1px solid $color-primary;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 1rem;
+  z-index: 1000;
+
+
+
+  .logo {
+    font-family: $font-heading;
+    font-size: 1.4rem;
+    color: $color-primary;
+  }
+}

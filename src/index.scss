@@ -1,0 +1,41 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@600&display=swap');
+@import './styles/variables';
+
+* {
+  margin: 0;
+  font-family: $font-body;
+  background-color: $color-bg;
+  color: $color-text;
+}
+
+body {
+  font-family: sans-serif;
+  background: #f9f9f9;
+  color: #333;
+  padding-top: 60px;
+}
+
+// Buttons
+.button {
+  background: $color-primary;
+  color: $color-bg;
+  border: none;
+  padding: $padding;
+  border-radius: $radius;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s ease;
+
+  &:hover {
+    box-shadow: 0 0 10px $color-primary;
+    transform: translateY(-2px);
+  }
+
+  &.secondary {
+    background: $color-secondary;
+
+    &:hover {
+      box-shadow: 0 0 10px $color-secondary;
+    }
+  }
+}

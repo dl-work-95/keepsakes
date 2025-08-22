@@ -1,15 +1,19 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import Header from './components/Header';
+import Landing from './pages/Landing';
+import Link1 from './pages/Link1';
+import Link2 from './pages/Link2';
+import './App.scss'
 
-function App() {
-
+export default function App() {
   return (
-    <div style={{ textAlign: "center", margin: "auto auto" }}>
-      <h1>Keepsakes 👋</h1>
-    </div>
-  )
+    <Router basename="/keepsakes">
+      <Header />
+      <Routes>
+        <Route path="/" element={<Landing />} />
+        <Route path="/link1" element={<Link1 />} />
+        <Route path="/link2" element={<Link2 />} />
+      </Routes>
+    </Router>
+  );
 }
-
-export default App
