@@ -1,0 +1,26 @@
+@use '../../styles/variables' as *;
+
+.landing-page {
+    h1 {
+        text-align: center;
+    }
+
+    h2 {
+        margin-top: 20px;
+        text-align: start;
+    }
+
+    p {
+        text-align: start;
+    }
+
+    a {
+        color: $color-text;
+        text-decoration: underline;
+
+        &:hover {
+            background: rgba(74, 222, 128, 0.1);
+            color: $color-primary;
+        }
+    }
+}

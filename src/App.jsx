@@ -1,19 +1,24 @@
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
-import Landing from './pages/Landing';
-import Link1 from './pages/Link1';
-import Link2 from './pages/Link2';
-import './App.scss'
+import Landing from './pages/Landing/Landing';
+import BestGames from './pages/BestGames/BestGames';
+import Footer from './components/Footer';
+import Achievements from './pages/Achievements/Achievements';
 
 export default function App() {
   return (
     <Router basename="/keepsakes">
-      <Header />
-      <Routes>
-        <Route path="/" element={<Landing />} />
-        <Route path="/link1" element={<Link1 />} />
-        <Route path="/link2" element={<Link2 />} />
-      </Routes>
+      <div className='app-container'>
+        <Header />
+        <main className='content'>
+          <Routes>
+            <Route path="/" element={<Landing />} />
+            <Route path="/bestgames" element={<BestGames />} />
+            <Route path="/achievements" element={<Achievements />} />
+          </Routes>
+        </main>
+        <Footer />
+      </div>
     </Router>
   );
 }

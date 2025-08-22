@@ -1,0 +1,82 @@
+@use '../../styles/variables' as *;
+
+.best-games-page {
+    h1 {
+        text-align: center;
+        margin-bottom: 20px;
+    }
+
+    h2 {
+        color: $color-primary;
+        text-align: start;
+        scroll-margin-top: $body-margin-top-header;
+    }
+
+    p {
+        text-align: start;
+    }
+
+    a {
+        color: $color-text;
+        text-decoration: underline;
+
+        &:hover {
+            background: rgba(74, 222, 128, 0.1);
+            color: $color-primary;
+        }
+    }
+
+    .jump-to-year {
+        margin: 20px 0px;
+        display: flex;
+        flex-wrap: wrap; // allows links to go to next line
+        gap: 0.25rem; // space between links
+    }
+
+    .game-item {
+        display: flex;
+        align-items: flex-start;
+        margin-bottom: 0.5rem;
+
+        .medal {
+            font-size: 1.2rem;
+            margin-right: 0.5rem;
+        }
+
+        .game-cover {
+            width: 150px;
+            height: auto;
+            border-radius: 8px;
+            object-fit: cover;
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.25);
+            margin-right: 1rem;
+        }
+
+        .game-title {
+            font-weight: 500;
+        }
+    }
+
+
+    .game-notes {
+        font-size: 0.85rem;
+        color: $color-primary;
+        margin: 0;
+    }
+
+    .game-notes-inline {
+        color: $color-primary;
+    }
+
+    .old-list-section {
+        margin-top: 1rem;
+
+        ul {
+            margin-left: 1.5rem;
+
+            li {
+                margin-bottom: 0.25rem;
+            }
+        }
+    }
+}

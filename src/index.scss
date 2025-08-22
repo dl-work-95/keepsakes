@@ -1,5 +1,5 @@
+@use './styles/variables' as *;
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;600&family=Orbitron:wght@600&display=swap');
-@import './styles/variables';
 
 * {
   margin: 0;
@@ -8,11 +8,18 @@
   color: $color-text;
 }
 
-body {
-  font-family: sans-serif;
-  background: #f9f9f9;
-  color: #333;
-  padding-top: 60px;
+body {}
+
+.app-container {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+.content {
+  padding: $body-margin-top-header 30px 30px 30px;
+  flex: 1;
+  box-sizing: border-box;
 }
 
 // Buttons

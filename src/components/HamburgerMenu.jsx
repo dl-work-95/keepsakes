@@ -11,8 +11,8 @@ export default function HamburgerMenu({ open, setOpen }) {
         <nav className="menu">
           <ul>
             <li><Link to="/" onClick={() => setOpen(false)}>Home</Link></li>
-            <li><Link to="/link1" onClick={() => setOpen(false)}>Link 1</Link></li>
-            <li><Link to="/link2" onClick={() => setOpen(false)}>Link 2</Link></li>
+            <li><Link to="/bestgames" onClick={() => setOpen(false)}>Best Games</Link></li>
+            <li><Link to="/achievements" onClick={() => setOpen(false)}>Achievements</Link></li>
           </ul>
         </nav>
       )}

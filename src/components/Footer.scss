@@ -1,0 +1,9 @@
+@use '../styles/variables' as *;
+
+.footer {
+    text-align: center;
+    padding: 1rem;
+    border-top: 1px solid $color-primary;
+    color: $color-text;
+    font-size: 0.9rem;
+}
