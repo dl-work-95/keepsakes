@@ -24,7 +24,7 @@ export default function BestGames() {
     },
     {
       year: 2020,
-      games: [{ title: 'Ghost of Tsushima', appId: 2215430 }, { title: 'The Walking Dead: The Telltale Definitive Series', appId: 1449690, notes: 'Games launched different years. The order of liking is 1>4>2>M>3>400' }],
+      games: [{ title: 'Ghost of Tsushima', appId: 2215430 }, { title: 'Cyberpunk 2077', appId: 1091500 }, { title: 'The Walking Dead: The Telltale Definitive Series', appId: 1449690, notes: 'Games launched different years. The order of liking is 1>4>2>M>3>400' }],
       multiplayer: [{ title: 'Phasmophobia', notes: 'OG of proximity horror.' }]
     },
     {
@@ -150,9 +150,18 @@ export default function BestGames() {
         {gameYears
           .sort((a, b) => (b.year || 0) - (a.year || 0))
           .map(({ year, yearLabel }) => (
-            <a key={year || yearLabel} href={`#year-${year || yearLabel}`} style={{ marginRight: '1rem' }}>
+            <button
+              key={year || yearLabel}
+              onClick={() => {
+                const el = document.getElementById(`year-${year || yearLabel}`);
+                if (el) {
+                  el.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+              }}
+              className='button-jump-to-year'
+            >
               {year || yearLabel}
-            </a>
+            </button>
           ))}
       </p>
       {gameYears.map(({ year, yearLabel, games = [], honorable = [], multiplayer = [], oldGames = [], oldMultiplayer = [] }) => (

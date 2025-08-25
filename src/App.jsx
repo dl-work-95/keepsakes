@@ -1,4 +1,4 @@
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { HashRouter as Router, Routes, Route } from 'react-router-dom';
 import Header from './components/Header';
 import Landing from './pages/Landing/Landing';
 import BestGames from './pages/BestGames/BestGames';
@@ -7,7 +7,7 @@ import Achievements from './pages/Achievements/Achievements';
 
 export default function App() {
   return (
-    <Router basename="/keepsakes">
+    <Router>
       <div className='app-container'>
         <Header />
         <main className='content'>

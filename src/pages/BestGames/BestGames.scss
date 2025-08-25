@@ -29,8 +29,25 @@
     .jump-to-year {
         margin: 20px 0px;
         display: flex;
-        flex-wrap: wrap; // allows links to go to next line
-        gap: 0.25rem; // space between links
+        flex-wrap: wrap;
+        gap: 0.25rem;
+
+        .button-jump-to-year {
+            margin-right: 1rem;
+            background: none;
+            border: none;
+            text-decoration: underline;
+            cursor: pointer;
+            padding: 0;
+
+            &:hover {
+                color: $color-primary;
+            }
+
+            &:focus {
+                outline: none;
+            }
+        }
     }
 
     .game-item {

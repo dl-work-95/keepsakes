@@ -9,6 +9,8 @@ export default function Landing() {
       <p>I will use this Github Pages sandbox to publish <strong>lists</strong>, links and other stuff I find interesting.</p>
       <h2>Lists?</h2>
       <p>Yes, there will be lists for my favorite things, like what I consider the <Link to="/bestgames">best games of all time</Link> for example.</p>
+      <h2>Vibe coded</h2>
+      <p>Yes, this website is mostly AI generated since it's a side project.</p>
     </div>
   );
 }
