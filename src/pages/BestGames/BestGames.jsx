@@ -1,154 +1,8 @@
 import './BestGames.scss';
+import { useEffect, useState } from 'react';
 
 export default function BestGames() {
-  const gameYears = [
-    {
-      year: 2025,
-      games: [{ title: 'Clair Obscur: Expedition 33', appId: 1903340 }, { title: 'Battlefield™ 6'/*, appId: 2807960*/, cover: 'https://image.api.playstation.com/vulcan/ap/rnd/202507/2217/61569015edf6c81b2e9772271e357b3c69ff0c2a4a5a2d07.png' }],
-      honorable: []
-    },
-    {
-      year: 2024,
-      games: [{ title: 'Helldivers 2', appId: 553850 }, { title: 'Star Wars Outlaws', appId: 2842040 }],
-      multiplayer: []
-    },
-    {
-      year: 2023,
-      games: [{ title: 'Starfield', appId: 1716740 }],
-      honorable: []
-    },
-    {
-      year: 2022,
-      games: [{ title: 'A Plague Tale: Requiem', appId: 1182900 }],
-      honorable: []
-    },
-    {
-      year: 2021,
-      games: [{ title: 'It Takes Two', notes: 'Best COOP game and it set the formula.', appId: 2995920 }],
-      multiplayer: []
-    },
-    {
-      year: 2020,
-      games: [{ title: 'Ghost of Tsushima', appId: 2215430 }, { title: 'Cyberpunk 2077', appId: 1091500 }, { title: 'The Walking Dead: The Telltale Definitive Series', appId: 1449690, notes: 'Games launched different years. The order of liking is 1>4>2>M>3>400' },],
-      honorable: [{ title: 'Phasmophobia', notes: 'OG of proximity horror.'/*, appId: 739630*/ }, { title: 'Hades' }],
-      multiplayer: []
-    },
-    {
-      year: 2019,
-      games: [{ title: 'A Plague Tale: Innocence', appId: 752590 }, { title: 'The Outer Worlds', appId: 578650 }],
-      multiplayer: []
-    },
-    {
-      year: 2018,
-      games: [{ title: 'Red Dead Redemption 2', appId: 1174180 }, { title: 'Sea of Thieves', notes: 'If I told you the hours spent on this...', appId: 1172620 }, { title: 'Marvel\'s Spider-Man', appId: 1817070 }],
-      honorable: [],
-      multiplayer: []
-    },
-    {
-      year: 2017,
-      games: [{ title: 'Horizon Zero Dawn', appId: 1151640 }, { title: 'Hellblade: Senua\'s Sacrifice', appId: 414340 }, { title: 'Playerunknown\'s Battlegrounds (PUBG)', notes: 'Best BR imo', appId: 578080 }],
-      honorable: [{ title: 'Assassin\'s Creed Origins' }, { title: 'Tom Clancy\'s Ghost Recon® Wildlands' }],
-      multiplayer: []
-    },
-    {
-      year: 2016,
-      games: [{ title: 'Battlefield 1', notes: 'Probably won\'t ever get something like this.', appId: 1238840 }, { title: 'No Man\'s Sky', appId: 275850 }, { title: 'Uncharted 4: A Thief\'s End', appId: 1659420 }],
-      honorable: [],
-      multiplayer: []
-    },
-    {
-      year: 2015,
-      games: [{ title: 'The Witcher 3: Wild Hunt', notes: 'Better experience if you play As a trilogy', appId: 292030 }, { title: 'Metal Gear Solid V: The Phantom Pain', notes: 'Metal Gear Saga as a whole', appId: 287700 }, { title: 'Batman™: Arkham Knight', appId: 208650 }],
-      honorable: []
-    },
-    {
-      year: 2014,
-      games: [{ title: 'Alien: Isolation', appId: 214490 }, { title: 'The Crew'/*, appId: 241560*/, notes: 'One of the best MP maps', cover: 'https://upload.wikimedia.org/wikipedia/en/f/ff/The_Crew_box_art.jpg' }],
-      honorable: []
-    },
-    {
-      year: 2013,
-      games: [{ title: 'The Last of Us', appId: 1888930 }, { title: 'GTA Online', notes: 'The GTA V version was revolutionary.', cover: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTG7-PIm8lwUjNAr9dAjk4D7Hklws2hyO1txg&s' }, { title: 'Assassin\'s Creed IV: Black Flag', appId: 242050 }],
-      honorable: [],
-      multiplayer: []
-    },
-    {
-      year: 2012,
-      games: [{ title: 'Counter-Strike', notes: 'The best competitive game out there to this day', appId: 730 }, { title: 'Mass Effect 3', notes: 'As a trilogy', appId: 1238020 }, { title: 'Far Cry® 3', appId: 220240 }],
-      honorable: [],
-      multiplayer: []
-    },
-    {
-      year: 2011,
-      games: [{ title: 'L.A. Noire', appId: 110800 }, { title: 'Batman: Arkham City', appId: 57400, notes: 'As a trilogy' }],
-      honorable: [],
-      multiplayer: []
-    },
-    {
-      year: 2010,
-      games: [{ title: 'Red Dead Redemption', appId: 2668510, notes: 'Undead Nightmare also' }, { title: 'Fallout: New Vegas', appId: 22380 }, { title: 'Battlefield: Bad Company 2', notes: 'The hours I\'ve spent blowing the buildings with the M-COMs', appId: 24960 },],
-      honorable: [{ title: 'Mass Effect 2', notes: 'As a trilogy', appId: 24980 }],
-      multiplayer: []
-    },
-    {
-      year: 2009,
-      games: [{ title: 'Call of Duty: Modern Warfare 2', notes: 'CoD in the 2008-2012 era... 👨‍🍳', appId: 10180 }, { title: 'Batman: Arkham Asylum', appId: 35140 }, { title: 'Uncharted 2: Among Thieves', cover: 'https://m.media-amazon.com/images/M/MV5BYzAxNDY2NjktNTI0Yi00NmJjLTkyMjYtNDk2ZGZkZTg0ZTg2XkEyXkFqcGc@._V1_.jpg' }],
-      honorable: [{ title: 'Killzone 2', cover: 'https://m.media-amazon.com/images/M/MV5BYmE4YzAwNTYtZWQ5NC00NjU0LWEwMTktY2I3ZTk4ZDAyZDhkXkEyXkFqcGc@._V1_.jpg' }],
-      multiplayer: []
-    },
-    {
-      year: 2008,
-      games: [{ title: 'Metal Gear Solid 4: Guns of the Patriots', notes: 'Metal Gear Saga as a whole', cover: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSWd-QuW2InEAIOSM8vexjz8YuSFlrnh3JkEQ&s' }, { title: 'Call of Duty: World at War', appId: 10090 }, { title: 'Grand Theft Auto IV', appId: 12210 }],
-      honorable: [{ title: 'Far Cry 2' }, { title: 'Burnout Paradise' }, { title: 'Resistance 2' }]
-    },
-    {
-      year: 2007,
-      games: [{ title: 'Mass Effect', notes: 'As a trilogy', appId: 17460 }]
-    },
-    {
-      year: 2004,
-      games: [{ title: 'Grand Theft Auto: San Andreas', appId: 12120 }],
-      honorable: []
-    },
-    {
-      year: 2001,
-      games: [{ title: 'Metal Gear Solid 2: Sons of Liberty', notes: 'Metal Gear Saga as a whole', appId: 2131640 }],
-      honorable: []
-    },
-    {
-      year: 1998,
-      games: [{ title: 'Metal Gear Solid', notes: 'Metal Gear Saga as a whole', appId: 2131630 }],
-      honorable: []
-    },
-    // Add more years here
-    {
-      yearLabel: 'Old list as of 2025',
-      oldGames: [
-        'Red Dead Redemption 1 & 2',
-        'The Last of Us Part 1',
-        'Metal Gear Solid Saga',
-        'The Witcher Trilogy',
-        'Horizon: Zero Dawn',
-        'Ghost of Tsushima',
-        'Grand Theft Auto: San Andreas & 4',
-        'Assassin\'s Creed IV: Black Flag',
-        'The Walking Dead: The Telltale Series (1>4>2>M>3>400)',
-        'Call of Duty: World at War'
-      ],
-      oldMultiplayer: [
-        'Sea of Thieves',
-        'Battlefield 1 or BFBC2',
-        'Call of Duty: Modern Warfare 2 or CoD in the 2008-2012 era',
-        'Counter-Strike',
-        'GTA Online',
-        'Helldivers 2',
-        'Phasmophobia',
-        'PUBG',
-        'It Takes Two (Co-op)'
-      ]
-    }
-  ];
-
+  const [gameYears, setGameYears] = useState([])
   const medals = ['🥇', '🥈', '🥉']; // top 3 medals
   const honorableEmoji = '⚪'; // symbol for honorable mentions
   const multiplayerEmoji = '👥'; // symbol for mp
@@ -156,6 +10,70 @@ export default function BestGames() {
   function getSteamCover(appId) {
     return `https://steamcdn-a.akamaihd.net/steam/apps/${appId}/library_600x900_2x.jpg`;
   }
+
+  useEffect(() => {
+    async function fetchGamesSheet() {
+      const url =
+        'https://docs.google.com/spreadsheets/d/1HRYMh9Av556UFVRX1xCStmS_dXoVdFB2XOiPAemh8bY/gviz/tq?tqx=out:json';
+
+      const res = await fetch(url);
+      const text = await res.text();
+
+      // Remove the `/*O_o*/ google.visualization.Query.setResponse(` wrapper
+      const jsonText = text
+        .replace(/^\/\*O_o\*\/\s*google\.visualization\.Query\.setResponse\(/, '')
+        .replace(/\);\s*$/, '');
+
+      const json = JSON.parse(jsonText);
+
+      const rows = json.table.rows;
+
+      // Transform rows into your nested structure
+      const grouped = {};
+
+      rows.forEach(({ c }) => {
+        const year = c[0]?.v;
+        const yearLabel = !year ? c[7]?.v : undefined; // fallback label for old list
+        const listType = c[1]?.v;
+        const rank = c[2]?.v;
+        const title = c[3]?.v;
+        const appId = c[4]?.v;
+        const cover = c[5]?.v;
+        const notes = c[6]?.v;
+
+        const key = year || yearLabel || 'old-list';
+
+        if (!grouped[key]) {
+          grouped[key] = {
+            year: year || undefined,
+            yearLabel: yearLabel || undefined,
+            games: [],
+            honorable: [],
+            multiplayer: [],
+            oldGames: [],
+            oldMultiplayer: []
+          };
+        }
+
+        const entry = { title, notes, appId, cover };
+
+        if (listType === 'main') grouped[key].games.push(entry);
+        else if (listType === 'honorable') grouped[key].honorable.push(entry);
+        else if (listType === 'multiplayer') grouped[key].multiplayer.push(entry);
+        else if (listType === 'old') grouped[key].oldGames.push(title);
+        else if (listType === 'old-multiplayer') grouped[key].oldMultiplayer.push(title);
+      });
+
+      // Convert object → array
+      const result = Object.values(grouped)
+        .sort((a, b) => (b.year || 0) - (a.year || 0));
+
+      setGameYears(result);
+      console.log('Transformed gameYears:', result);
+    }
+
+    fetchGamesSheet();
+  }, []);
 
   return (
     <div className='best-games-page'>
