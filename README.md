@@ -9,8 +9,8 @@
   - Uplay ✅
   - Playstation ✅
 - Add GIFs to accomplishments
-- For each year add "To play" section for missing games that one would think deserve a spot
 
 ## Games to add
 
-- ...
+- Replace MGS3 with MGSΔ
+- 
